@@ -1,0 +1,67 @@
+/* Reset html/body so 100vw / 100vh truly fill the viewport
+   (browsers add default margin/padding to body). */
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden; /* outer page never scrolls */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* App layout */
+.app-shell {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+.app-editor-column {
+  flex: 1 1 auto;
+  height: 100%;
+  min-width: 0; /* allow the editor to shrink without forcing h-scroll */
+  min-height: 0;
+  overflow: hidden;
+}
+
+.app-editor-container {
+  height: 100%;
+  width: 100%;
+  min-height: 0;
+}
+
+.app-panel-column {
+  flex: 0 0 20%;
+  height: 100%;
+  min-width: 220px;
+  padding: 1rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-left: 1px solid #e0e0e0;
+  background: #fafafa;
+}
+
+.app-panel-column label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.app-panel-column select {
+  display: block;
+  margin: 0.5rem 0;
+  width: 100%;
+}
+
+.app-panel-column button {
+  margin-top: 0.5rem;
+}
